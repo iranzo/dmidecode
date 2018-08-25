@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from __future__ import print_function
 import os, sys
 
@@ -121,11 +123,17 @@ def _show(info):
             threads = cpu['Thread Count']
         else:
             threads = "-"
+
+        if 'Core Count' in cpu:
+            cores = cpu['Core Count']
+        else:
+            cores = "-"
+
         print ('%s %s %s (Core: %s, Thead: %s)' % (
             cpu['Manufacturer'],
             cpu['Family'],
             cpu['Max Speed'],
-            cpu['Core Count'],
+            cores,
             threads,
             ))
 
